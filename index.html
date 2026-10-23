@@ -1,39 +1,89 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ポコポコビーニー</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokobi — 制作物一覧</title>
+  <meta name="description" content="Pokobi が制作した、ブラウザで動作するゲームとツールの一覧です。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Pokobi</h1>
-            <p>なんか作ったもの置き場</p>
-        </header>
-
-        <main>
-            <section class="tool-list">
-                <h2>一覧</h2>
-                <div class="tool-card">
-                    <h3>Valorant カスタムマッチ チーム分け & マップ選択ツール</h3>
-                    <p>Valorantのカスタムマッチで、プレイヤーのランクを考慮して均等なチーム分けとランダムなマップ選択を自動で行うツール。</p>
-                    <a href="https://pokobi.github.io/valorant-team-tool/" class="button">ツールへ移動</a>
-                </div>
-                <div class="tool-card">
-                    <h3>YouTube Music History Analyzer</h3>
-                    <p>YouTube Musicの再生履歴データ (watch-history.json) を読み込み、あなたの音楽の趣向を詳細に分析・可視化するツール。</p>
-                    <a href="https://pokobi.github.io/YouTube-Music-History-Analyzer/" class="button">ツールへ移動</a>
-                </div>
-                <div class="tool-card">
-                    <h3>仮</h3>
-                    <p></p>
-                    <a href="https://pokobi.github.io/abyssal-descent/" class="button">ツールへ移動</a>
-                </div>
-
-                </section>
-        </main>
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Works</p>
+      <h1>Pokobi</h1>
+      <p class="lead">個人で制作した、ブラウザ上で動作するゲームとツールをまとめています。<br>いずれもインストール不要で、ページを開くだけでご利用いただけます。</p>
     </div>
+  </header>
+
+  <main class="wrap">
+    <section aria-labelledby="works-title">
+      <h2 id="works-title" class="section-title">制作物</h2>
+
+      <div class="grid">
+        <article class="card">
+          <div class="card-head">
+            <span class="tag tag-game">ゲーム</span>
+          </div>
+          <h3>ABYSSAL DESCENT <span class="sub">深淵降下</span></h3>
+          <p class="desc">ブラウザで遊べる3DのFPSローグライトです。ルートを選びながら深淵を下り、武器やスキルを集めて、各所に待ち構えるボスを倒していきます。</p>
+          <ul class="points">
+            <li>マップ・敵・報酬は毎回ランダムに生成</li>
+            <li>銃・近接武器・スキル・装備・加護を組み合わせたビルド構築</li>
+            <li>中断しても途中から再開できる自動セーブ</li>
+          </ul>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://pokobi.github.io/abyssal-descent/">プレイする</a>
+            <a class="btn btn-ghost" href="https://github.com/pokobi/abyssal-descent">ソースコード</a>
+          </div>
+          <p class="note">推奨環境：PC（キーボード＋マウス）、Chrome / Edge</p>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <span class="tag tag-tool">ツール</span>
+          </div>
+          <h3>Valorant チーム分けツール</h3>
+          <p class="desc">Valorantのカスタムマッチ向けのツールです。プレイヤーのランクをもとに戦力が偏らないようチームを分け、マップもランダムに選択します。</p>
+          <ul class="points">
+            <li>ランクに基づく均等なチーム分け（10人未満でも利用可）</li>
+            <li>ランダムなマップ選択、対象マップの除外設定</li>
+            <li>結果のテキストコピー、入力内容の自動保存</li>
+          </ul>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://pokobi.github.io/valorant-team-tool/">ツールを開く</a>
+            <a class="btn btn-ghost" href="https://github.com/pokobi/valorant-team-tool">ソース</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <span class="tag tag-tool">ツール</span>
+          </div>
+          <h3>YouTube Music History Analyzer</h3>
+          <p class="desc">YouTube Musicの再生履歴（Google Takeoutのwatch-history.json）を読み込み、よく聴く曲やアーティストの傾向を集計・グラフ化します。</p>
+          <ul class="points">
+            <li>データはブラウザ内のみで処理（外部へ送信しません）</li>
+            <li>ランキング、期間指定、時間帯別・月別のグラフ</li>
+            <li>複数ファイルの結合、次回アクセス時の自動復元</li>
+          </ul>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://pokobi.github.io/YouTube-Music-History-Analyzer/">ツールを開く</a>
+            <a class="btn btn-ghost" href="https://github.com/pokobi/YouTube-Music-History-Analyzer">ソース</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <span>ほとんどのコーディングは生成AI（Claude Code）です。</span>
+      <a href="https://github.com/pokobi">GitHub</a>
+    </div>
+  </footer>
 </body>
 </html>
