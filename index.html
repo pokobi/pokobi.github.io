@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="img/abyssal-descent.webp">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,7 +21,7 @@
   <header class="site-header">
     <div class="wrap">
       <a class="brand" href="https://pokobi.github.io/">Pokobi</a>
-      <a class="header-link" href="https://github.com/pokobi"><svg width="16" height="16"><use href="#i-code"/></svg>GitHub</a>
+      <a class="header-link" href="https://github.com/pokobi"><svg><use href="#i-code"/></svg>GitHub</a>
     </div>
   </header>
 
@@ -38,12 +39,9 @@
     </div>
 
     <article class="card featured">
-      <div class="window">
-        <div class="titlebar"><svg><use href="#i-browser"/></svg><span>ブラウザ · pokobi.github.io/abyssal-descent</span></div>
-        <img src="img/abyssal-descent.webp" width="1280" height="800" alt="ABYSSAL DESCENT のタイトル画面。溶岩の流れる地下迷宮を背景に、深淵へ潜る・協力プレイなどのメニューが並ぶ">
-      </div>
+      <img class="shot" src="img/abyssal-descent.webp" width="1600" height="900" alt="ABYSSAL DESCENT のプレイ画面。月夜の墓地の石畳で、岩の巨人と2体の蜘蛛が迫り、手前で銃を構えている">
       <div class="body">
-        <p class="kind game">ゲーム</p>
+        <p class="meta game">ゲーム<span class="where"><svg><use href="#i-browser"/></svg>ブラウザ</span></p>
         <h3>ABYSSAL DESCENT<span class="sub">深淵降下</span></h3>
         <p class="desc">ブラウザで遊べる3DのFPSローグライトです。ルートを選びながら深淵を下り、武器やスキルを集めて、各所に待ち構えるボスを倒していきます。</p>
         <ul class="points">
@@ -61,67 +59,49 @@
 
     <div class="tools">
       <article class="card">
-        <div class="window">
-          <div class="titlebar"><svg><use href="#i-browser"/></svg><span>ブラウザ · pokobi.github.io/valorant-team-tool</span></div>
-          <img src="img/valorant-team-tool.webp" width="960" height="600" loading="lazy" alt="チーム分けの結果。アタッカーとディフェンダーに5人ずつ分かれ、合計ランクがどちらも14になっている">
-        </div>
-        <div class="body">
-          <p class="kind">ツール</p>
-          <h3>Valorant チーム分けツール</h3>
-          <p class="desc">Valorantのカスタムマッチ向けのツールです。プレイヤーのランクをもとに戦力が偏らないようチームを分け、マップもランダムに選択します。</p>
-          <ul class="points">
-            <li>ランクに基づく均等なチーム分け（10人未満でも利用可）</li>
-            <li>ランダムなマップ選択、対象マップの除外設定</li>
-            <li>結果のテキストコピー、入力内容の自動保存</li>
-          </ul>
-          <div class="actions">
-            <a class="btn" href="https://pokobi.github.io/valorant-team-tool/">ツールを開く</a>
-            <a class="source" href="https://github.com/pokobi/valorant-team-tool"><svg><use href="#i-code"/></svg>ソースコード</a>
-          </div>
+        <p class="meta">ツール<span class="where"><svg><use href="#i-browser"/></svg>ブラウザ</span></p>
+        <h3>Valorant チーム分けツール</h3>
+        <p class="desc">Valorantのカスタムマッチ向けのツールです。プレイヤーのランクをもとに戦力が偏らないようチームを分け、マップもランダムに選択します。</p>
+        <ul class="points">
+          <li>ランクに基づく均等なチーム分け（10人未満でも利用可）</li>
+          <li>ランダムなマップ選択、対象マップの除外設定</li>
+          <li>結果のテキストコピー、入力内容の自動保存</li>
+        </ul>
+        <div class="actions">
+          <a class="btn" href="https://pokobi.github.io/valorant-team-tool/">ツールを開く</a>
+          <a class="source" href="https://github.com/pokobi/valorant-team-tool"><svg><use href="#i-code"/></svg>ソースコード</a>
         </div>
       </article>
 
       <article class="card">
-        <div class="window">
-          <div class="titlebar"><svg><use href="#i-browser"/></svg><span>ブラウザ · pokobi.github.io/YouTube-Music-History-Analyzer</span></div>
-          <img src="img/youtube-music-history-analyzer.webp" width="960" height="600" loading="lazy" alt="再生履歴の集計画面。総再生回数などの数値と、よく聴いた曲・アーティストのランキングが並ぶ（例のデータ）">
-        </div>
-        <div class="body">
-          <p class="kind">ツール</p>
-          <h3>YouTube Music History Analyzer</h3>
-          <p class="desc">YouTube Musicの再生履歴（Google Takeoutのwatch-history.json）を読み込み、よく聴く曲やアーティストの傾向を集計・グラフ化します。</p>
-          <ul class="points">
-            <li>データはブラウザ内のみで処理（外部へ送信しません）</li>
-            <li>ランキング、期間指定、時間帯別・月別のグラフ</li>
-            <li>複数ファイルの結合、次回アクセス時の自動復元</li>
-          </ul>
-          <div class="actions">
-            <a class="btn" href="https://pokobi.github.io/YouTube-Music-History-Analyzer/">ツールを開く</a>
-            <a class="source" href="https://github.com/pokobi/YouTube-Music-History-Analyzer"><svg><use href="#i-code"/></svg>ソースコード</a>
-          </div>
+        <p class="meta">ツール<span class="where"><svg><use href="#i-browser"/></svg>ブラウザ</span></p>
+        <h3>YouTube Music History Analyzer</h3>
+        <p class="desc">YouTube Musicの再生履歴（Google Takeoutのwatch-history.json）を読み込み、よく聴く曲やアーティストの傾向を集計・グラフ化します。</p>
+        <ul class="points">
+          <li>データはブラウザ内のみで処理（外部へ送信しません）</li>
+          <li>ランキング、期間指定、時間帯別・月別のグラフ</li>
+          <li>複数ファイルの結合、次回アクセス時の自動復元</li>
+        </ul>
+        <div class="actions">
+          <a class="btn" href="https://pokobi.github.io/YouTube-Music-History-Analyzer/">ツールを開く</a>
+          <a class="source" href="https://github.com/pokobi/YouTube-Music-History-Analyzer"><svg><use href="#i-code"/></svg>ソースコード</a>
         </div>
       </article>
 
       <article class="card">
-        <div class="window">
-          <div class="titlebar"><svg><use href="#i-windows"/></svg><span>Windows アプリ · YT Downloader</span></div>
-          <img src="img/yt-downloader.webp" width="960" height="600" loading="lazy" alt="YT Downloader の画面。ダウンロード中・変換中・完了した曲が一覧に並ぶ（例のデータ）">
+        <p class="meta">ツール<span class="where"><svg><use href="#i-windows"/></svg>Windows アプリ</span></p>
+        <h3>YT Downloader</h3>
+        <p class="desc">Windowsの通知領域に常駐する、動画・音声のダウンローダーです。Chrome拡張機能と連携し、YouTube / YouTube Musicの再生画面から直接保存できます。</p>
+        <ul class="points">
+          <li>動画・音声を選んで保存（形式・画質・音質を設定可）</li>
+          <li>yt-dlp・FFmpegを起動時に自動で最新版へ更新</li>
+          <li>インストーラー版と、展開するだけで使えるzip版</li>
+        </ul>
+        <div class="actions">
+          <a class="btn" href="https://github.com/pokobi/yt-downloader/releases/latest">ダウンロード</a>
+          <a class="source" href="https://github.com/pokobi/yt-downloader"><svg><use href="#i-code"/></svg>ソースコード</a>
         </div>
-        <div class="body">
-          <p class="kind">ツール</p>
-          <h3>YT Downloader</h3>
-          <p class="desc">Windowsの通知領域に常駐する、動画・音声のダウンローダーです。Chrome拡張機能と連携し、YouTube / YouTube Musicの再生画面から直接保存できます。</p>
-          <ul class="points">
-            <li>動画・音声を選んで保存（形式・画質・音質を設定可）</li>
-            <li>yt-dlp・FFmpegを起動時に自動で最新版へ更新</li>
-            <li>インストーラー版と、展開するだけで使えるzip版</li>
-          </ul>
-          <div class="actions">
-            <a class="btn" href="https://github.com/pokobi/yt-downloader/releases/latest">ダウンロード</a>
-            <a class="source" href="https://github.com/pokobi/yt-downloader"><svg><use href="#i-code"/></svg>ソースコード</a>
-          </div>
-          <p class="env">動作環境：Windows 10 / 11、Chrome</p>
-        </div>
+        <p class="env">動作環境：Windows 10 / 11、Chrome</p>
       </article>
     </div>
   </main>

@@ -1,9 +1,8 @@
-/* 枠回りはグラファイトの無彩色で静かにし、色は各作品の画面（バナー）に任せる。
+/* 枠回りはグラファイトの無彩色で静かにし、色はゲームの画面 1 枚に任せる。
    強調色は青 1 色、余白は 4 の倍数、文字の太さは 400 / 500 のみ。 */
 :root {
   --bg: #fafafa;
   --surface: #ffffff;
-  --raised: #f4f4f5;
   --line: rgba(23, 23, 23, 0.08);
   --line-strong: rgba(23, 23, 23, 0.14);
   --text: #171717;
@@ -15,6 +14,11 @@
   --dot-game: #d9822b;
   --dot-tool: #2f5fe0;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  /* ゲームのカードは、画面写真（夜の場面）に合わせて両方のテーマで暗くする */
+  --stage: #0d1018;
+  --stage-text: #eef0f5;
+  --stage-text-2: #b4bac8;
+  --stage-muted: #8a91a2;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   color-scheme: light dark;
 }
@@ -23,7 +27,6 @@
   :root {
     --bg: #141415;
     --surface: #19191b;
-    --raised: #232325;
     --line: rgba(237, 237, 237, 0.08);
     --line-strong: rgba(237, 237, 237, 0.16);
     --text: #ededed;
@@ -78,6 +81,7 @@ img { display: block; max-width: 100%; height: auto; }
   transition: color 150ms var(--ease);
 }
 .header-link:hover { color: var(--text); }
+.header-link svg { width: 16px; height: 16px; }
 
 .intro { padding: 48px 0 40px; }
 .intro h1 {
@@ -108,58 +112,29 @@ main.wrap { padding-bottom: 80px; }
 .card {
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  padding: 24px;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 16px;
-  padding: 8px;
   box-shadow: var(--shadow);
-  min-width: 0;
   transition: border-color 150ms var(--ease);
 }
 .card:hover { border-color: var(--line-strong); }
 
-/* 実際の画面を入れる小さなウィンドウ（タイトルバーに「どこで動くか」） */
-.window {
-  min-width: 0;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  background: var(--raised);
-}
-.titlebar {
+/* 分類と、どこで動くか */
+.meta {
   display: flex;
-  align-items: center;
-  gap: 8px;
-  height: 32px;
-  padding: 0 12px;
-  border-bottom: 1px solid var(--line);
-  font-size: 12px;
-  line-height: 16px;
-  color: var(--muted);
-  white-space: nowrap;
-  overflow: hidden;
-}
-.titlebar svg { flex: none; width: 14px; height: 14px; }
-.titlebar span { overflow: hidden; text-overflow: ellipsis; }
-.window img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
-
-.body {
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  padding: 16px 12px 12px;
-}
-.kind {
-  display: inline-flex;
   align-items: center;
   gap: 8px;
   margin: 0 0 8px;
   font-size: 13px;
   color: var(--text-2);
 }
-.kind::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--dot-tool); }
-.kind.game::before { background: var(--dot-game); }
+.meta::before { content: ""; flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--dot-tool); }
+.meta.game::before { background: var(--dot-game); }
+.meta .where { display: inline-flex; align-items: center; gap: 4px; color: var(--muted); }
+.meta .where svg { width: 14px; height: 14px; }
 
 .card h3 {
   margin: 0 0 8px;
@@ -170,13 +145,13 @@ main.wrap { padding-bottom: 80px; }
 .card h3 .sub { margin-left: 8px; font-size: 13px; font-weight: 400; color: var(--muted); }
 .desc { margin: 0 0 12px; font-size: 14px; line-height: 1.8; color: var(--text-2); }
 .points {
-  margin: 0 0 20px;
+  margin: 0 0 24px;
   padding: 0;
   list-style: none;
   font-size: 14px;
   line-height: 1.6;
 }
-.points li { position: relative; padding-left: 16px; margin-bottom: 4px; color: var(--text); }
+.points li { position: relative; padding-left: 16px; margin-bottom: 4px; }
 .points li::before {
   content: "";
   position: absolute;
@@ -226,13 +201,49 @@ main.wrap { padding-bottom: 80px; }
 
 a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 8px; }
 
-/* 大きく見せる 1 枚（ゲーム）と、その下に並ぶツール */
-.featured { margin-bottom: 16px; }
-.featured.card { flex-direction: row; align-items: stretch; }
-.featured .window { flex: 0 0 60%; }
-.featured .body { padding: 24px 24px 20px; justify-content: center; }
-.featured h3 { font-size: 24px; }
+/* ---- ゲーム（見せ場の 1 枚） ----
+   画面写真をカードの右側いっぱいに敷き、左へ向かって透明にして背景色へ溶かす。
+   溶けた側（左）に文字を置く。 */
+.featured {
+  position: relative;
+  overflow: hidden;
+  min-height: 440px;
+  margin-bottom: 16px;
+  padding: 40px;
+  background: var(--stage);
+  border-color: rgba(238, 240, 245, 0.08);
+  color: var(--stage-text);
+  justify-content: center;
+}
+.featured:hover { border-color: rgba(238, 240, 245, 0.16); }
+.featured .shot {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 72%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 40% 50%;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.55) 22%, #000 48%),
+                      linear-gradient(to bottom, #000 78%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.55) 22%, #000 48%),
+              linear-gradient(to bottom, #000 78%, transparent 100%);
+  mask-composite: intersect;
+}
+.featured .body { position: relative; max-width: 400px; }
+.featured .meta { color: var(--stage-text-2); }
+.featured .meta .where { color: var(--stage-muted); }
+.featured h3 { font-size: 28px; line-height: 1.3; }
+.featured h3 .sub { color: var(--stage-muted); }
+.featured .desc { color: var(--stage-text-2); }
+.featured .points li::before { background: var(--stage-muted); }
+.featured .env { color: var(--stage-muted); }
+.featured .source { color: var(--stage-text-2); }
+.featured .source:hover { color: var(--stage-text); }
+.featured .btn { background: #6d8fff; color: #0d1018; }
+.featured .btn:hover { background: #8aa4ff; }
 
+/* ---- ツール ---- */
 .tools {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -253,19 +264,25 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
 .footer a:hover { color: var(--text); }
 
 @media (max-width: 960px) {
-  .featured.card { flex-direction: column; }
-  .featured .window { flex: none; }
-  .featured .body { padding: 16px 12px 12px; }
-  .featured h3 { font-size: 20px; }
-  /* 3 枚を 2 列にすると 1 枚余るので、1 列で横並びのカードにする */
   .tools { grid-template-columns: 1fr; }
-  .tools .card { flex-direction: row; }
-  .tools .window { flex: 0 0 44%; align-self: flex-start; }
+}
+@media (max-width: 760px) {
+  /* 写真を上に置き、下へ向かって溶かす */
+  .featured { min-height: 0; padding: 0; }
+  .featured .shot {
+    position: static;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+  }
+  .featured .body { max-width: none; margin-top: -32px; padding: 0 20px 24px; }
+  .featured h3 { font-size: 22px; }
 }
 @media (max-width: 640px) {
   .wrap { padding: 0 16px; }
-  .intro { padding: 32px 0 32px; }
+  .intro { padding: 32px 0; }
   .intro h1 { font-size: 28px; }
-  .tools .card { flex-direction: column; }
-  .tools .window { flex: none; align-self: stretch; }
+  .tools .card { padding: 20px; }
 }
