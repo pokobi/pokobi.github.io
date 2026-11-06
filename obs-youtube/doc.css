@@ -1,0 +1,13 @@
+/* 説明ページ用。色や余白はトップの style.css の変数をそのまま使う */
+.doc { max-width: 760px; padding-top: 24px; padding-bottom: 80px; }
+.doc-nav { display: flex; flex-wrap: wrap; gap: 4px 20px; margin-bottom: 32px; font-size: 13px; }
+.doc-nav a { color: var(--muted); text-decoration: none; }
+.doc-nav a:hover, .doc-nav a[aria-current="page"] { color: var(--text); }
+.doc h1 { margin: 0 0 12px; font-size: 28px; font-weight: 500; line-height: 1.3; }
+.doc h2 { margin: 40px 0 12px; font-size: 17px; font-weight: 500; }
+.doc p { margin: 0 0 12px; color: var(--text-2); overflow-wrap: anywhere; }
+.doc .lead { font-size: 15px; }
+.doc .updated { font-size: 13px; color: var(--muted); }
+.doc .points { color: var(--text-2); }
+.doc p a, .doc li a { color: var(--accent); }
+@media (max-width: 640px) { .doc h1 { font-size: 24px; } }

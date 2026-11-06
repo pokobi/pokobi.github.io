@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OBS YouTube 配信補助 — Pokobi</title>
+  <meta name="description" content="OBS Studio から YouTube へ配信する際に、配信タイトルへの日付付与と再生リストへの追加を自動で行う個人用スクリプトです。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="doc.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="https://pokobi.github.io/">Pokobi</a>
+      <a class="header-link" href="https://github.com/pokobi">GitHub</a>
+    </div>
+  </header>
+
+  <main class="wrap doc">
+    <nav class="doc-nav">
+      <a href="./" aria-current="page">OBS YouTube 配信補助</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="terms.html">利用規約</a>
+    </nav>
+
+    <h1>OBS YouTube 配信補助</h1>
+    <p class="lead">OBS Studio から YouTube へ配信する際の定型作業を自動化する、個人用の OBS スクリプトです。作者本人の YouTube チャンネルでのみ使用しています。</p>
+
+    <h2>機能</h2>
+    <ul class="points">
+      <li>配信開始時に、配信タイトルを「日付 + ゲーム名」の形式に変更</li>
+      <li>配信を指定の再生リストへ追加（追加済みの場合は省略）</li>
+      <li>配信の公開範囲を確認し、限定公開以外の場合は限定公開へ変更</li>
+      <li>OBS のドックからゲーム名の入力と配信の開始・終了を操作</li>
+    </ul>
+
+    <h2>Google アカウントの利用</h2>
+    <p>上記の操作のため、YouTube Data API を通じて、作者の YouTube チャンネルへのアクセス権限（https://www.googleapis.com/auth/youtube）を使用します。取得するのは、配信中のライブ配信、動画のタイトル、再生リスト、チャンネル名の情報です。</p>
+    <p>取得した情報と認証情報は、スクリプトを実行している PC の中だけで扱い、作者を含む外部のサーバーへは送信しません。詳細は<a href="privacy.html">プライバシーポリシー</a>に記載しています。</p>
+
+    <h2>関連ページ</h2>
+    <ul class="points">
+      <li><a href="privacy.html">プライバシーポリシー</a></li>
+      <li><a href="terms.html">利用規約</a></li>
+    </ul>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <span>ほとんどのコーディングは生成AIです。</span>
+      <a href="https://github.com/pokobi">GitHub</a>
+    </div>
+  </footer>
+</body>
+</html>
